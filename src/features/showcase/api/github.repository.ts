@@ -22,15 +22,17 @@ export class GitHubRepository {
       headers.Authorization = `Bearer ${token}`;
     }
 
-    const response = await fetch(`${this.baseUrl}/users/${username}/repos?per_page=100&sort=updated`, {
-      headers,
-    });
+    const repositories: GitHubRawRepository[] = [];
+    for (let page = 1; ; page += 1) {
+      const response = await this.fetchWithRetry(
+        `${this.baseUrl}/users/${username}/repos?per_page=100&page=${page}&sort=updated`,
+        { headers }
+      );
 
-    if (!response.ok) {
-      throw new Error(`GitHub API error (${response.status}): ${response.statusText}`);
+      const pageRepositories: GitHubRawRepository[] = await response.json();
+      repositories.push(...pageRepositories);
+      if (pageRepositories.length < 100) return repositories;
     }
-
-    return response.json();
   }
 
   async fetchReadme(owner: string, repo: string, token?: string): Promise<string | null> {
@@ -43,15 +45,27 @@ export class GitHubRepository {
       headers.Authorization = `Bearer ${token}`;
     }
 
-    const response = await fetch(`${this.baseUrl}/repos/${owner}/${repo}/readme`, {
-      headers,
-    });
+    const response = await this.fetchWithRetry(`${this.baseUrl}/repos/${owner}/${repo}/readme`, { headers }, true);
 
-    if (!response.ok) {
-      return null;
+    return response.status === 404 ? null : response.text();
+  }
+
+  private async fetchWithRetry(
+    url: string,
+    options: RequestInit,
+    allowNotFound = false
+  ): Promise<Response> {
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      const response = await fetch(url, options);
+      if (response.ok || (allowNotFound && response.status === 404)) {
+        return response;
+      }
+      if (![429, 500, 502, 503, 504].includes(response.status) || attempt === 2) {
+        throw new Error(`GitHub API error (${response.status}): ${response.statusText}`);
+      }
+      await new Promise((resolve) => setTimeout(resolve, 2 ** attempt * 500));
     }
-
-    return response.text();
+    throw new Error("GitHub API request failed after retries.");
   }
 }
 

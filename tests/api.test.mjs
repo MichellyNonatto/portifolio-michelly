@@ -6,6 +6,9 @@ const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GEMINI_MODEL = process.env.GEMINI_MODEL;
+const AI_PROVIDER = process.env.AI_PROVIDER;
 
 function getSupabaseClient() {
   return createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -106,5 +109,64 @@ describe("GitHub API Integration", () => {
     const response = await fetch(endpoint, { headers });
 
     assert.equal(response.status, 404, `[GitHub] Expected status 404 for missing repository, received ${response.status}`);
+  });
+});
+
+describe("Gemini API Integration", () => {
+  it("validates environment configuration", () => {
+    assert.ok(GEMINI_API_KEY, "[Gemini] GEMINI_API_KEY is required");
+    assert.ok(GEMINI_MODEL, "[Gemini] GEMINI_MODEL is required");
+  });
+
+  it("generates content with Gemini API", async () => {
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+    const payload = {
+      contents: [
+        {
+          parts: [{ text: "Respond only with 'OK'." }],
+        },
+      ],
+    };
+
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await response.json();
+    assert.equal(
+      response.ok,
+      true,
+      `[Gemini] Request failed with status ${response.status}: ${data.error?.message || response.statusText}`
+    );
+    assert.ok(data.candidates?.[0]?.content?.parts?.[0]?.text, "[Gemini] Response missing generated text candidate");
+  });
+
+  it("throws error when GeminiSummarizerConfig is missing required values", async () => {
+    const { GeminiSummarizerService } = await import(
+      "../src/features/showcase/services/gemini-summarizer.service.ts"
+    );
+
+    assert.throws(() => new GeminiSummarizerService(), /Missing 'apiKey' in GeminiSummarizerConfig/);
+    assert.throws(() => new GeminiSummarizerService({ apiKey: "test" }), /Missing 'model' in GeminiSummarizerConfig/);
+  });
+
+  it("generates structured repository summary using GeminiSummarizerService", async () => {
+    const { GeminiSummarizerService } = await import(
+      "../src/features/showcase/services/gemini-summarizer.service.ts"
+    );
+    const summarizer = new GeminiSummarizerService({
+      apiKey: GEMINI_API_KEY,
+      model: GEMINI_MODEL,
+    });
+
+    const summary = await summarizer.generateSummary(
+      "sample-service",
+      "TypeScript",
+      "# Sample Service\nAPI gateway and microservice pipeline built with Node.js."
+    );
+
+    assert.ok(typeof summary === "string" && summary.length > 20, "[Gemini] Expected valid non-empty summary string");
   });
 });

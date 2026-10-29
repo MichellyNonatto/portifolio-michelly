@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test": "node --test --env-file=.env.local tests/api.test.mjs"
+    "test": "node --test --env-file-if-exists=.env.local tests/api.test.mjs",
+    "pipeline:sync": "node --env-file-if-exists=.env.local scripts/sync-pipeline.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",

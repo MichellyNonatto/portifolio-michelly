@@ -25,7 +25,6 @@ SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
 
 # AI Pipeline Integration
 GEMINI_API_KEY=your_gemini_api_key_here
-GROQ_API_KEY=your_groq_api_key_here
 
 # GitHub API Integration
 GITHUB_TOKEN=your_github_token_here

@@ -14,7 +14,7 @@ Key objectives:
 
 ## Input Requirements & System References
 
-- Environment Variables: Read access tokens (`GEMINI_API_KEY`, `GROQ_API_KEY`, `GITHUB_TOKEN`, `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`) from `.env.local`.
+- Environment Variables: Read access tokens (`GEMINI_API_KEY`, `GITHUB_TOKEN`, `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`) from `.env.local`.
 
 - Quality Standards: Adhere to system design guidelines defined in `AGENTS.md`.
 
