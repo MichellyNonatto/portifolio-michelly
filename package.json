@@ -2,13 +2,15 @@
   "name": "portifolio-michelly",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test": "node --test --env-file=.env.local tests/api.test.mjs"
+    "test": "node --test --env-file-if-exists=.env.local tests/api.test.mjs",
+    "pipeline:sync": "node --experimental-strip-types --env-file-if-exists=.env.local scripts/sync-pipeline.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
