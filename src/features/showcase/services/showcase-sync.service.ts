@@ -41,8 +41,10 @@ export class ShowcaseSyncService {
 
   async syncRepositories(username: string, githubToken?: string): Promise<void> {
     const repos = await this.githubRepo.fetchRepositories(username, githubToken);
+    console.log(`Starting repository sync for ${repos.length} repositories.`);
 
-    for (const repo of repos) {
+    for (const [index, repo] of repos.entries()) {
+      console.log(`[${index + 1}/${repos.length}] Syncing ${repo.name}...`);
       const readme = await this.githubRepo.fetchReadme(repo.owner.login, repo.name, githubToken);
 
       let summary = repo.description ?? "";
@@ -80,6 +82,7 @@ export class ShowcaseSyncService {
       if (error) {
         throw new Error(`Failed to upsert repository '${repo.name}' into Supabase: ${error.message}`);
       }
+      console.log(`[${index + 1}/${repos.length}] Synced ${repo.name}.`);
     }
   }
 }

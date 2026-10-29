@@ -73,7 +73,14 @@ export class GitHubRepository {
     allowNotFound = false
   ): Promise<Response> {
     for (let attempt = 0; attempt < 3; attempt += 1) {
-      const response = await fetch(url, options);
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 30_000);
+      let response: Response;
+      try {
+        response = await fetch(url, { ...options, signal: controller.signal });
+      } finally {
+        clearTimeout(timeout);
+      }
       if (response.ok || (allowNotFound && response.status === 404)) {
         return response;
       }
