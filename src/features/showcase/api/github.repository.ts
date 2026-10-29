@@ -12,6 +12,23 @@ export interface GitHubRawRepository {
 export class GitHubRepository {
   private readonly baseUrl = "https://api.github.com";
 
+  async fetchAuthenticatedUsername(token: string): Promise<string> {
+    const response = await this.fetchWithRetry(`${this.baseUrl}/user`, {
+      headers: {
+        Accept: "application/vnd.github.v3+json",
+        "User-Agent": "michelly-portfolio-pipeline",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const user = await response.json() as { login?: unknown };
+
+    if (typeof user.login !== "string" || !user.login) {
+      throw new Error("GitHub API returned no authenticated username.");
+    }
+
+    return user.login;
+  }
+
   async fetchRepositories(username: string, token?: string): Promise<GitHubRawRepository[]> {
     const headers: Record<string, string> = {
       Accept: "application/vnd.github.v3+json",

@@ -26,7 +26,7 @@ Key objectives:
 
 - Develop `src/lib/github-ai-pipeline.ts` (or standalone script executable via Node.js CLI).
 
-- Fetch public repositories belonging to configured `GITHUB_USERNAME`.
+- Fetch repositories for `GITHUB_REPOSITORY_OWNER` in GitHub Actions, or the authenticated GitHub user outside Actions.
 
 - Extract repository details: repository name, primary programming language, star count, and decode base64 `README.md` content.
 

@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
+const GITHUB_USERNAME = process.env.GITHUB_REPOSITORY_OWNER ?? process.env.GITHUB_USERNAME;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = process.env.GEMINI_MODEL;
@@ -81,7 +81,7 @@ describe("Supabase Integration", () => {
 
 describe("GitHub API Integration", () => {
   it("validates environment configuration", () => {
-    assert.ok(GITHUB_USERNAME, "[GitHub] GITHUB_USERNAME is required");
+    assert.ok(GITHUB_USERNAME, "[GitHub] GitHub username is required");
   });
 
   it("fetches user public repositories", async () => {
