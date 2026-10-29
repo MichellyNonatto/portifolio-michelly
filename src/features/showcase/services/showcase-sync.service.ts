@@ -1,6 +1,5 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { gitHubRepository, type GitHubRepository } from "../api/github.repository.ts";
-import { supabase as defaultSupabase } from "../../../infrastructure/supabase/client.ts";
 
 export interface AiSummarizer {
   readonly provider?: string;
@@ -23,13 +22,20 @@ export class ShowcaseSyncService {
 
     if (customSupabaseClient) {
       this.supabase = customSupabaseClient;
-    } else if (process.env.SUPABASE_SERVICE_ROLE_KEY && process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    } else if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
       this.supabase = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL,
         process.env.SUPABASE_SERVICE_ROLE_KEY
       );
+    } else if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      this.supabase = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      );
     } else {
-      this.supabase = defaultSupabase;
+      throw new Error(
+        "Missing Supabase environment variables. Set NEXT_PUBLIC_SUPABASE_URL and a Supabase key."
+      );
     }
   }
 

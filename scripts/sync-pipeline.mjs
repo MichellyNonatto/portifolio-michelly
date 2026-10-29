@@ -1,7 +1,7 @@
 import { GeminiSummarizerService } from "../src/features/showcase/services/gemini-summarizer.service.ts";
 import { ShowcaseSyncService } from "../src/features/showcase/services/showcase-sync.service.ts";
 
-async function runPipeline(): Promise<void> {
+async function runPipeline() {
   const username = process.env.GITHUB_USERNAME;
   const githubToken = process.env.GITHUB_TOKEN;
   const geminiApiKey = process.env.GEMINI_API_KEY;
@@ -31,7 +31,7 @@ async function runPipeline(): Promise<void> {
   await syncService.syncRepositories(username, githubToken);
 }
 
-runPipeline().catch((error: unknown) => {
+runPipeline().catch((error) => {
   const message = error instanceof Error ? error.message : String(error);
   process.stderr.write(`Pipeline execution failed: ${message}\n`);
   process.exit(1);
