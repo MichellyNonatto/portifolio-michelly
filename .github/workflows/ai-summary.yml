@@ -12,6 +12,7 @@ permissions:
 jobs:
   sync-repositories:
     runs-on: ubuntu-latest
+    environment: .env.local
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
