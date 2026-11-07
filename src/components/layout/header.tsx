@@ -19,7 +19,7 @@ function NavigationLinks() {
 
 export function Header() {
   return (
-    <header className="sticky top-0 animate-fade-down animate-duration-[350ms] bg-surface shadow-xl motion-reduce:animate-none">
+    <header className="sticky top-0 z-10 animate-fade-down animate-duration-[350ms] bg-surface shadow-xl motion-reduce:animate-none">
       <div className="mx-auto flex min-h-14 min-w-0 max-w-7xl items-center gap-3 px-4 sm:px-6 md:min-h-16 lg:px-12">
         <div className="min-w-0 shrink animate-fade-right animate-delay-100 animate-duration-[300ms] motion-reduce:animate-none">
           <Link
