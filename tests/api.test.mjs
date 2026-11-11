@@ -8,7 +8,6 @@ const GITHUB_USERNAME = process.env.GITHUB_REPOSITORY_OWNER ?? process.env.GITHU
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = process.env.GEMINI_MODEL;
-const AI_PROVIDER = process.env.AI_PROVIDER;
 
 function getSupabaseClient() {
   return createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -71,7 +70,7 @@ describe("Supabase Integration", () => {
 
     const { data, error, status } = await supabase
       .from("project_summaries")
-      .select("id, repository_name, summary, stars_count, sync_status");
+      .select("id, repository_owner, repository_name, summary_en, summary_pt");
 
     assert.equal(error, null, `[Supabase] Query error: ${error?.message}`);
     assert.equal(status, 200, `[Supabase] Expected status 200, received ${status}`);

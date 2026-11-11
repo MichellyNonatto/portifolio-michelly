@@ -3,8 +3,11 @@ export type ProjectSummary = {
   repositoryOwner: string;
   repositoryName: string;
   repositoryUrl: string;
+  websiteUrl: string | null;
   sourceDescription: string | null;
   summary: string;
+  summaryEn: string;
+  summaryPt: string;
   primaryLanguage: string | null;
   starsCount: number;
   topics: string[];
@@ -30,5 +33,6 @@ export type Certification = {
   issuer: string;
   issueDate: string;
   credentialUrl: string | null;
+  isAcademic: boolean;
   createdAt: string;
 };
