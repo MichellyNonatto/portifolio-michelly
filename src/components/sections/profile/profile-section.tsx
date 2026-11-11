@@ -22,7 +22,7 @@ export function ProfileSection() {
       </div>
 
       <ProfileImage
-        imageSrc="/images/profile.jpg"
+        imageSrc="https://media.licdn.com/dms/image/v2/D4D03AQHJeJsEU6F3WQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723343535380?e=1796256000&v=beta&t=nVcJRCV3HEFcbsqNVcFj2G8w8yvnSUEdI06zZsD4ZPU"
         altText={profile.imageAlt}
         badgeRole={profile.badge.role}
         badgeIcon={profile.badge.icon}
