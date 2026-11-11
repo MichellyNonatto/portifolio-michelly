@@ -5,6 +5,7 @@ import type {
   ShowcaseProject,
   ShowcaseExperience,
   ShowcaseCertification,
+  SkillTrack,
 } from "../models/showcase.model";
 
 export interface ShowcaseControllerResult {
@@ -21,6 +22,11 @@ export interface ShowcaseExperiencesResult {
   experiences: ShowcaseExperience[];
   academicCertifications: ShowcaseCertification[];
   professionalCertifications: ShowcaseCertification[];
+  hasError: boolean;
+}
+
+export interface ShowcaseSkillsResult {
+  tracks: SkillTrack[];
   hasError: boolean;
 }
 
@@ -115,6 +121,20 @@ export class ShowcaseController {
         experiencesResult.status === "rejected" &&
         certificationsResult.status === "rejected",
     };
+  }
+
+  async loadSkills(): Promise<ShowcaseSkillsResult> {
+    try {
+      return {
+        tracks: await supabaseShowcaseRepository.getSkillTracks(),
+        hasError: false,
+      };
+    } catch {
+      return {
+        tracks: [],
+        hasError: true,
+      };
+    }
   }
 }
 

@@ -83,4 +83,9 @@ export const ptBr = {
     next: "Próximo",
     paginationLabel: "Paginação de projetos",
   },
+  skills: {
+    badge: "03 / Skills",
+    headline: "Toolkit Arquitetural & Disciplinas",
+    empty: "Nenhuma skill foi publicada ainda.",
+  },
 } as const;

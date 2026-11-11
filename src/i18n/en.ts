@@ -70,7 +70,7 @@ export const en = {
   },
   projects: {
     badge: "02 / Projects",
-    headline: "Architectural Toolkit & Disciplines",
+    headline: "Prduction AI & web Architectures",
     projectBreakdown: "AI project breakdown",
     problemSolved: "Problem solved",
     primaryLanguage: "Primary language",
@@ -82,5 +82,10 @@ export const en = {
     previous: "Previous",
     next: "Next",
     paginationLabel: "Project pagination",
+  },
+  skills: {
+    badge: "03 / Skills",
+    headline: "Architectural Toolkit & Disciplines",
+    empty: "No skills have been published yet.",
   },
 } as const;

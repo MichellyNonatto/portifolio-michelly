@@ -39,3 +39,26 @@ export interface CertificationDbRow {
   is_academic: boolean;
   created_at: string;
 }
+
+export interface SkillDbRow {
+  id: string;
+  track_id: string;
+  name: string;
+  sort_order: number;
+}
+
+export interface SkillTrackDbRow {
+  id: string;
+  slug: string;
+  name: string;
+  icon: string;
+  sort_order: number;
+}
+
+export interface SkillTrack {
+  id: string;
+  slug: string;
+  name: string;
+  icon: string;
+  skills: string[];
+}
