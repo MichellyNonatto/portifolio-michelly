@@ -47,4 +47,25 @@ export const ptBr = {
     },
     imageAlt: "Michelly Coelho - Engenheira de Software & Integradora de IA",
   },
+  about: {
+    badge: "01 / Sobre",
+    headline: "Sobre & Trajetória Profissional",
+    bioTitle: "Sobre Mim",
+    coursesTitle: "Cursos & Workshops",
+    coursesDescription: "Aperfeiçoamentos práticos e especializações imersivas.",
+    trajectoryTitle: "Trajetória & Conquistas",
+    trajectorySubtitle: "Carreira e certificações acadêmicas validadas",
+    currentLabel: "Presente",
+    credentialLabel: "Credencial",
+    emptyExperiences: "Nenhum registro de experiência profissional encontrado.",
+    emptyCertifications: "Nenhum certificado acadêmico encontrado.",
+    fallback: {
+      title: "Experiências temporariamente indisponíveis",
+      description:
+        "Não foi possível sincronizar a trajetória do banco de dados. Você pode acessar meu currículo completo e canais abaixo:",
+      downloadResume: "Baixar Currículo PDF",
+      viewGithub: "Acessar GitHub",
+      contact: "Entrar em Contato",
+    },
+  },
 } as const;

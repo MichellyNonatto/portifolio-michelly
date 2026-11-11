@@ -38,12 +38,33 @@ export const en = {
         value: "24+",
         label: "AI Deployments",
         variant: "tertiary" as const,
-      }
+      },
     ],
     badge: {
       role: "Software Engineer",
       icon: "code",
     },
     imageAlt: "Michelly Coelho - Software Engineer & AI Integrator",
+  },
+  about: {
+    badge: "01 / About",
+    headline: "About & Professional Journey",
+    bioTitle: "About Me",
+    coursesTitle: "Courses & Workshops",
+    coursesDescription: "Hands-on specializations and ongoing technical training.",
+    trajectoryTitle: "Trajectory & Achievements",
+    trajectorySubtitle: "Career and validated academic certifications",
+    currentLabel: "Present",
+    credentialLabel: "Credential",
+    emptyExperiences: "No professional experience records found.",
+    emptyCertifications: "No academic certificates found.",
+    fallback: {
+      title: "Experiences temporarily unavailable",
+      description:
+        "Could not load live trajectory from database. Please refer to my resume or contact channels below:",
+      downloadResume: "Download Resume PDF",
+      viewGithub: "View GitHub",
+      contact: "Get in Touch",
+    },
   },
 } as const;

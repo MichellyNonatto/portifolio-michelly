@@ -8,7 +8,6 @@ const GITHUB_USERNAME = process.env.GITHUB_REPOSITORY_OWNER ?? process.env.GITHU
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_MODEL = process.env.GEMINI_MODEL;
-const AI_PROVIDER = process.env.AI_PROVIDER;
 
 function getSupabaseClient() {
   return createClient(SUPABASE_URL, SUPABASE_ANON_KEY);

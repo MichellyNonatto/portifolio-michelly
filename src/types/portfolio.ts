@@ -30,5 +30,6 @@ export type Certification = {
   issuer: string;
   issueDate: string;
   credentialUrl: string | null;
+  isAcademic: boolean;
   createdAt: string;
 };
