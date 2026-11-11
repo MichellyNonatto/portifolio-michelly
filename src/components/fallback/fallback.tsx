@@ -6,6 +6,8 @@ interface FallbackProps {
   readonly downloadResumeText: string;
   readonly viewGithubText: string;
   readonly contactText: string;
+  readonly githubHref: string;
+  readonly contactHref: string;
   readonly className?: string;
 }
 
@@ -15,6 +17,8 @@ export function Fallback({
   downloadResumeText,
   viewGithubText,
   contactText,
+  githubHref,
+  contactHref,
   className = "",
 }: FallbackProps) {
   return (
@@ -49,24 +53,24 @@ export function Fallback({
         >
           {downloadResumeText}
         </Button>
-        <Button
+        {githubHref && <Button
           asAnchor
-          href="https://github.com/MichellyNonatto"
+          href={githubHref}
           target="_blank"
           rel="noopener noreferrer"
           variant="secondary"
           icon="open_in_new"
         >
           {viewGithubText}
-        </Button>
-        <Button
+        </Button>}
+        {contactHref && <Button
           asAnchor
-          href="mailto:michelly.coelho.dev@gmail.com"
+          href={`mailto:${contactHref}`}
           variant="surface"
           icon="mail"
         >
           {contactText}
-        </Button>
+        </Button>}
       </div>
     </div>
   );

@@ -9,4 +9,29 @@
     padding: 0;
     scroll-behavior: smooth;
   }
+
+  .contact-select {
+    appearance: none;
+  }
+
+  .contact-select option {
+    background: var(--color-surface);
+    color: var(--color-on-surface);
+  }
+
+  .contact-select option:checked {
+    background: var(--color-primary-fixed);
+    color: var(--color-on-primary-fixed);
+  }
+
+  .contact-content,
+  .contact-content * {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  .contact-content input,
+  .contact-content textarea {
+    cursor: text;
+  }
 }

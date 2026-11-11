@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Fallback } from "@/components/fallback/fallback";
 import { showcaseController } from "@/features/showcase/controllers/showcase.controller";
 import { ProjectsGrid } from "./projects-grid";
+import { siteConfig } from "@/config/site";
 
 function ProjectsSkeleton() {
   return (
@@ -35,6 +36,8 @@ async function ProjectsContent({
         downloadResumeText={fallback.downloadResume}
         viewGithubText={fallback.viewGithub}
         contactText={fallback.contact}
+        githubHref={siteConfig.socialLinks.github}
+        contactHref={siteConfig.contactEmail}
       />
     );
   }

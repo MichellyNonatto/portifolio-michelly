@@ -8,6 +8,7 @@ import { AboutBioSkeleton } from "./about-bio-skeleton";
 import { AboutTrajectoryView } from "./about-trajectory-view";
 import { Fallback } from "@/components/fallback/fallback";
 import { showcaseController } from "@/features/showcase/controllers/showcase.controller";
+import { siteConfig } from "@/config/site";
 
 function AboutSectionSkeleton() {
   return (
@@ -47,6 +48,8 @@ async function AboutContent({
         downloadResumeText={fallback.downloadResume}
         viewGithubText={fallback.viewGithub}
         contactText={fallback.contact}
+        githubHref={siteConfig.socialLinks.github}
+        contactHref={siteConfig.contactEmail}
         className="lg:col-span-12"
       />
     );

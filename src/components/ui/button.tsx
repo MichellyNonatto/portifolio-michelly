@@ -22,7 +22,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseClasses =
-    "inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-display text-label-md transition-all";
+    "inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 font-display text-label-md transition-all disabled:cursor-not-allowed disabled:opacity-60";
 
   const variantClasses = {
     primary:

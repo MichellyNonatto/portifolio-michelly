@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Fallback } from "@/components/fallback/fallback";
 import { showcaseController } from "@/features/showcase/controllers/showcase.controller";
 import type { SkillTrack } from "@/features/showcase/models/showcase.model";
+import { siteConfig } from "@/config/site";
 
 function SkillsSkeleton() {
   return (
@@ -36,6 +37,8 @@ async function SkillsContent({
         downloadResumeText={fallback.downloadResume}
         viewGithubText={fallback.viewGithub}
         contactText={fallback.contact}
+        githubHref={siteConfig.socialLinks.github}
+        contactHref={siteConfig.contactEmail}
       />
     );
   }
