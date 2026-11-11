@@ -70,7 +70,7 @@ describe("Supabase Integration", () => {
 
     const { data, error, status } = await supabase
       .from("project_summaries")
-      .select("id, repository_name, summary, stars_count, sync_status");
+      .select("id, repository_owner, repository_name, summary_en, summary_pt");
 
     assert.equal(error, null, `[Supabase] Query error: ${error?.message}`);
     assert.equal(status, 200, `[Supabase] Expected status 200, received ${status}`);

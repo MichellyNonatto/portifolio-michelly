@@ -26,9 +26,11 @@ function AboutSectionSkeleton() {
 async function AboutContent({
   about,
   profile,
+  fallback,
 }: {
   readonly about: typeof en.about;
   readonly profile: typeof en.profile;
+  readonly fallback: typeof en.fallback;
 }) {
   const {
     experiences,
@@ -40,11 +42,11 @@ async function AboutContent({
   if (hasError) {
     return (
       <Fallback
-        title={about.fallback.title}
-        description={about.fallback.description}
-        downloadResumeText={about.fallback.downloadResume}
-        viewGithubText={about.fallback.viewGithub}
-        contactText={about.fallback.contact}
+        title={fallback.title}
+        description={fallback.description}
+        downloadResumeText={fallback.downloadResume}
+        viewGithubText={fallback.viewGithub}
+        contactText={fallback.contact}
         className="lg:col-span-12"
       />
     );
@@ -82,12 +84,12 @@ async function AboutContent({
 }
 
 export function AboutSection() {
-  const { about, profile } = en;
+  const { about, profile, header } = en;
 
   return (
     <section
-      id="about"
-      aria-label="About & Trajectory"
+      id={header.navigation[0].id}
+      aria-label={header.navigation[0].label}
       className="flex flex-col gap-10 pt-12 lg:pt-16"
     >
       <div className="flex flex-col gap-2">
@@ -102,7 +104,7 @@ export function AboutSection() {
       </div>
 
       <Suspense fallback={<AboutSectionSkeleton />}>
-        <AboutContent about={about} profile={profile} />
+        <AboutContent about={about} profile={profile} fallback={en.fallback} />
       </Suspense>
     </section>
   );

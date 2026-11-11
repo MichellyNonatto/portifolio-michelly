@@ -30,6 +30,11 @@ export class GeminiSummarizerService implements AiSummarizer {
   }
 
   async generateSummary(repoName: string, language: string | null, readmeContent: string): Promise<string> {
+    const summaries = await this.generateSummaries(repoName, language, readmeContent);
+    return summaries.summaryPt;
+  }
+
+  async generateSummaries(repoName: string, language: string | null, readmeContent: string): Promise<{ summaryEn: string; summaryPt: string }> {
     const endpoint = `${this.baseUrl}/models/${this.model}:generateContent?key=${this.apiKey}`;
 
     const payload = {
@@ -71,7 +76,8 @@ export class GeminiSummarizerService implements AiSummarizer {
         const json = candidate.replace(/^```json\s*|\s*```$/g, "").trim();
         let parsed: {
           repository_name?: unknown;
-          summary?: unknown;
+          summary_en?: unknown;
+          summary_pt?: unknown;
           primary_language?: unknown;
         };
         try {
@@ -81,13 +87,20 @@ export class GeminiSummarizerService implements AiSummarizer {
         }
         if (
           typeof parsed.repository_name !== "string"
-          || typeof parsed.summary !== "string"
+          || typeof parsed.summary_en !== "string"
+          || typeof parsed.summary_pt !== "string"
           || typeof parsed.primary_language !== "string"
-          || !parsed.summary.trim()
+          || parsed.summary_en.trim().length < 100
+          || parsed.summary_en.trim().length > 300
+          || parsed.summary_pt.trim().length < 100
+          || parsed.summary_pt.trim().length > 300
         ) {
           throw new Error("Gemini returned JSON with an invalid repository summary.");
         }
-        return parsed.summary.trim();
+        return {
+          summaryEn: parsed.summary_en.trim(),
+          summaryPt: parsed.summary_pt.trim(),
+        };
       }
 
       if (![429, 500, 502, 503, 504].includes(response.status) || attempt === 2) {

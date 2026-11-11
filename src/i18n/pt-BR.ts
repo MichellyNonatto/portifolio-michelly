@@ -47,6 +47,14 @@ export const ptBr = {
     },
     imageAlt: "Michelly Coelho - Engenheira de Software & Integradora de IA",
   },
+  fallback: {
+    title: "Experiências temporariamente indisponíveis",
+    description:
+      "Não foi possível sincronizar a trajetória do banco de dados. Você pode acessar meu currículo completo e canais abaixo:",
+    downloadResume: "Baixar Currículo PDF",
+    viewGithub: "Acessar GitHub",
+    contact: "Entrar em Contato",
+  },
   about: {
     badge: "01 / Sobre",
     headline: "Sobre & Trajetória Profissional",
@@ -59,13 +67,20 @@ export const ptBr = {
     credentialLabel: "Credencial",
     emptyExperiences: "Nenhum registro de experiência profissional encontrado.",
     emptyCertifications: "Nenhum certificado acadêmico encontrado.",
-    fallback: {
-      title: "Experiências temporariamente indisponíveis",
-      description:
-        "Não foi possível sincronizar a trajetória do banco de dados. Você pode acessar meu currículo completo e canais abaixo:",
-      downloadResume: "Baixar Currículo PDF",
-      viewGithub: "Acessar GitHub",
-      contact: "Entrar em Contato",
-    },
+  },
+  projects: {
+    badge: "02 / Projetos",
+    headline: "Toolkit Arquitetural & Disciplinas",
+    projectBreakdown: "Resumo do projeto",
+    problemSolved: "Problema resolvido",
+    primaryLanguage: "Linguagem principal",
+    projectLabel: "Projeto",
+    starsLabel: "Estrelas no GitHub",
+    github: "GitHub",
+    liveDemo: "Acessar projeto",
+    empty: "Nenhum projeto publicado encontrado.",
+    previous: "Anterior",
+    next: "Próximo",
+    paginationLabel: "Paginação de projetos",
   },
 } as const;

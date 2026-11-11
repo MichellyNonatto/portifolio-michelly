@@ -4,6 +4,14 @@ export type ShowcaseProject = ProjectSummary;
 export type ShowcaseExperience = Experience;
 export type ShowcaseCertification = Certification;
 
+export interface ProjectSummaryDbRow {
+  id: string;
+  repository_owner: string;
+  repository_name: string;
+  summary_en: string;
+  summary_pt: string;
+}
+
 export interface ShowcaseState {
   projects: ShowcaseProject[];
   isLoading: boolean;

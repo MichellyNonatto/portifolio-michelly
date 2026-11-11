@@ -5,6 +5,10 @@ export interface AiSummarizer {
   readonly provider?: string;
   readonly model?: string;
   generateSummary(repoName: string, language: string | null, readmeContent: string): Promise<string>;
+  generateSummaries?(repoName: string, language: string | null, readmeContent: string): Promise<{
+    summaryEn: string;
+    summaryPt: string;
+  }>;
 }
 
 export class ShowcaseSyncService {
@@ -47,15 +51,24 @@ export class ShowcaseSyncService {
       console.log(`[${index + 1}/${repos.length}] Syncing ${repo.name}...`);
       const readme = await this.githubRepo.fetchReadme(repo.owner.login, repo.name, githubToken);
 
-      let summary = repo.description ?? "";
-      let aiProvider: string | null = null;
-      let aiModel: string | null = null;
-
+      let summaryEn = repo.description ?? "";
+      let summaryPt = repo.description ?? "";
       if (this.aiSummarizer && readme) {
         try {
-          summary = await this.aiSummarizer.generateSummary(repo.name, repo.language, readme);
-          aiProvider = this.aiSummarizer.provider ?? process.env.AI_PROVIDER ?? null;
-          aiModel = this.aiSummarizer.model ?? process.env.GEMINI_MODEL ?? null;
+          if (this.aiSummarizer.generateSummaries) {
+            ({ summaryEn, summaryPt } = await this.aiSummarizer.generateSummaries(
+              repo.name,
+              repo.language,
+              readme
+            ));
+          } else {
+            summaryPt = await this.aiSummarizer.generateSummary(
+              repo.name,
+              repo.language,
+              readme
+            );
+            summaryEn = summaryPt;
+          }
         } catch (error) {
           console.error(`Failed to generate summary for ${repo.name}; using repository description.`, error);
         }
@@ -64,16 +77,8 @@ export class ShowcaseSyncService {
       const { error } = await this.supabase.from("project_summaries").upsert({
         repository_owner: repo.owner.login,
         repository_name: repo.name,
-        repository_url: repo.html_url,
-        source_description: repo.description,
-        summary,
-        primary_language: repo.language,
-        stars_count: repo.stargazers_count,
-        topics: repo.topics ?? [],
-        source_updated_at: repo.updated_at,
-        ai_provider: aiProvider,
-        ai_model: aiModel,
-        sync_status: "published",
+        summary_en: summaryEn,
+        summary_pt: summaryPt,
         updated_at: new Date().toISOString(),
       }, {
         onConflict: "repository_owner,repository_name",

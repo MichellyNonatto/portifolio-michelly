@@ -2,6 +2,7 @@ export interface GitHubRawRepository {
   name: string;
   owner: { login: string };
   html_url: string;
+  homepage: string | null;
   description: string | null;
   language: string | null;
   stargazers_count: number;

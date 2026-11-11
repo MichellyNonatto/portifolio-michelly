@@ -1,24 +1,23 @@
 import { supabase } from "@/infrastructure/supabase/client";
 import type {
-  ShowcaseProject,
   ShowcaseExperience,
   ShowcaseCertification,
+  ProjectSummaryDbRow,
   ExperienceDbRow,
   CertificationDbRow,
 } from "../models/showcase.model";
 
 export class SupabaseShowcaseRepository {
-  async getPublishedProjects(): Promise<ShowcaseProject[]> {
+  async getPublishedProjects(): Promise<ProjectSummaryDbRow[]> {
     const { data, error } = await supabase
       .from("project_summaries")
-      .select("*")
-      .order("stars_count", { ascending: false });
+      .select("id, repository_owner, repository_name, summary_en, summary_pt");
 
     if (error) {
       throw new Error(`Failed to fetch project_summaries: ${error.message}`);
     }
 
-    return (data as ShowcaseProject[]) || [];
+    return (data as ProjectSummaryDbRow[]) || [];
   }
 
   async getExperiences(): Promise<ShowcaseExperience[]> {
