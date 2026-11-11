@@ -3,6 +3,8 @@ export const en = {
     brand: {
       name: "Michelly Coelho",
       role: "Engineer & AI",
+      description: "© 2024 Michelly Coelho. Architecting high-performance systems and intelligent AI interfaces.",
+      returnToTop: "Top",
     },
     navigation: [
       { label: "About", id: "about" },
