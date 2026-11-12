@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { en } from "@/i18n/en";
+import { getDictionary } from "@/i18n";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AboutBio } from "./about-bio";
@@ -29,9 +29,9 @@ async function AboutContent({
   profile,
   fallback,
 }: {
-  readonly about: typeof en.about;
-  readonly profile: typeof en.profile;
-  readonly fallback: typeof en.fallback;
+  readonly about: Awaited<ReturnType<typeof getDictionary>>["dictionary"]["about"];
+  readonly profile: Awaited<ReturnType<typeof getDictionary>>["dictionary"]["profile"];
+  readonly fallback: Awaited<ReturnType<typeof getDictionary>>["dictionary"]["fallback"];
 }) {
   const {
     experiences,
@@ -86,8 +86,9 @@ async function AboutContent({
   );
 }
 
-export function AboutSection() {
-  const { about, profile, header } = en;
+export async function AboutSection() {
+  const { dictionary } = await getDictionary();
+  const { about, profile, header, fallback } = dictionary;
 
   return (
     <section
@@ -107,7 +108,7 @@ export function AboutSection() {
       </div>
 
       <Suspense fallback={<AboutSectionSkeleton />}>
-        <AboutContent about={about} profile={profile} fallback={en.fallback} />
+        <AboutContent about={about} profile={profile} fallback={fallback} />
       </Suspense>
     </section>
   );

@@ -1,10 +1,15 @@
 import Link from "next/link";
-import { en } from "@/i18n/en";
+import { getDictionary } from "@/i18n";
+import { LanguageSwitcher } from "./language-switcher";
 
-function NavigationLinks() {
+function NavigationLinks({
+  navigation,
+}: {
+  readonly navigation: readonly { label: string; id: string }[];
+}) {
   return (
     <>
-      {en.header.navigation.map((item) => (
+      {navigation.map((item) => (
         <a
           key={item.id}
           href={`#${item.id}`}
@@ -17,7 +22,10 @@ function NavigationLinks() {
   );
 }
 
-export function Header() {
+export async function Header() {
+  const { dictionary, locale } = await getDictionary();
+  const { header } = dictionary;
+
   return (
     <header className="sticky top-0 z-10 animate-fade-down animate-duration-[350ms] bg-surface shadow-xl motion-reduce:animate-none">
       <div className="mx-auto flex min-h-14 min-w-0 max-w-7xl items-center gap-3 px-4 sm:px-6 md:min-h-16 lg:px-12">
@@ -27,10 +35,10 @@ export function Header() {
             className="flex min-h-12 min-w-0 w-fit flex-col justify-center leading-none text-on-surface"
           >
             <span className="truncate text-base font-semibold tracking-[-0.03em] sm:text-lg">
-              {en.header.brand.name}
+              {header.brand.name}
             </span>
             <span className="mt-1 truncate text-[10px] font-semibold uppercase tracking-[-0.01em] text-primary">
-              {en.header.brand.role}
+              {header.brand.role}
             </span>
           </Link>
         </div>
@@ -39,8 +47,14 @@ export function Header() {
           aria-label="Primary navigation"
           className="ml-auto hidden items-center gap-1 md:flex lg:gap-2"
         >
-          <NavigationLinks />
+          <NavigationLinks navigation={header.navigation} />
         </nav>
+
+        <LanguageSwitcher
+          locale={locale}
+          label={header.languageLabel}
+          options={header.languageOptions}
+        />
 
         <details className="group relative ml-auto md:hidden">
           <summary
@@ -57,7 +71,7 @@ export function Header() {
             aria-label="Mobile navigation"
             className="absolute right-0 top-full z-10 flex w-max min-w-52 max-w-[calc(100vw-2rem)] animate-fade-down animate-duration-150 flex-col gap-1 rounded-2xl border border-outline bg-surface p-2 shadow-lg motion-reduce:animate-none"
           >
-            <NavigationLinks />
+            <NavigationLinks navigation={header.navigation} />
           </nav>
         </details>
       </div>

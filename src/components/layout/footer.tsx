@@ -1,8 +1,11 @@
 
 import Link from "next/link";
-import { en } from "@/i18n/en";
+import { getDictionary } from "@/i18n";
 
-export function Footer() {
+export async function Footer() {
+  const { dictionary } = await getDictionary();
+  const { header } = dictionary;
+
   return (
     <footer className="relative mt-space-xl w-full bg-surface-container-low py-space-xl">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-space-md px-margin-mobile lg:flex-row lg:px-margin">
@@ -13,17 +16,17 @@ export function Footer() {
             className="flex min-w-0 flex-col justify-center leading-none text-on-surface"
           >
             <span className="truncate text-base font-semibold tracking-[-0.03em] sm:text-lg">
-              {en.header.brand.name}
+              {header.brand.name}
             </span>
 
             <span className="mt-1 truncate text-[10px] font-semibold uppercase tracking-[-0.01em] text-primary">
-              {en.header.brand.role}
+              {header.brand.role}
             </span>
           </Link>
         </div>
 
         <p className="min-w-0 max-w-2xl text-center font-body-sm text-body-sm text-on-surface-variant lg:text-left">
-          {en.header.brand.description}
+          {header.brand.description}
         </p>
 
         <nav
@@ -34,7 +37,7 @@ export function Footer() {
             href="#"
             className="flex min-h-12 items-center gap-1 font-label-sm text-label-sm text-on-surface-variant transition-colors hover:text-primary motion-reduce:animate-none animate-fade-down animate-duration-[250ms]"
           >
-            {en.header.brand.returnToTop}
+            {header.brand.returnToTop}
 
             <span
               aria-hidden="true"

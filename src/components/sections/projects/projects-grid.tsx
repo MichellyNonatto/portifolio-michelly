@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import type { ShowcaseProject } from "@/features/showcase/models/showcase.model";
+import type { Locale } from "@/i18n";
 
 const PROJECTS_PER_PAGE = 3;
 
@@ -20,9 +21,10 @@ interface ProjectsGridProps {
     readonly next: string;
     readonly paginationLabel: string;
   };
+  readonly locale: Locale;
 }
 
-export function ProjectsGrid({ projects, labels }: ProjectsGridProps) {
+export function ProjectsGrid({ projects, labels, locale }: ProjectsGridProps) {
   const [page, setPage] = useState(0);
   const pageCount = Math.ceil(projects.length / PROJECTS_PER_PAGE);
   const visibleProjects = projects.slice(
@@ -97,7 +99,7 @@ export function ProjectsGrid({ projects, labels }: ProjectsGridProps) {
                   {labels.projectBreakdown}
                 </p>
                 <p className="mt-3 flex-1 font-body-sm text-body-sm leading-relaxed">
-                  {project.summaryEn}
+                  {locale === "pt-BR" ? project.summaryPt : project.summaryEn}
                 </p>
                 <p className="mt-3 font-body-sm text-body-sm leading-relaxed">
                   <strong>{labels.primaryLanguage}:</strong>{" "}

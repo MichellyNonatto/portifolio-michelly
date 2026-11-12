@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { en } from "@/i18n/en";
+import { getDictionary } from "@/i18n";
 import { Badge } from "@/components/ui/badge";
 import { Fallback } from "@/components/fallback/fallback";
 import { showcaseController } from "@/features/showcase/controllers/showcase.controller";
@@ -22,9 +22,11 @@ function ProjectsSkeleton() {
 async function ProjectsContent({
   projects,
   fallback,
+  locale,
 }: {
-  readonly projects: typeof en.projects;
-  readonly fallback: typeof en.fallback;
+  readonly projects: Awaited<ReturnType<typeof getDictionary>>["dictionary"]["projects"];
+  readonly fallback: Awaited<ReturnType<typeof getDictionary>>["dictionary"]["fallback"];
+  readonly locale: "en" | "pt-BR";
 }) {
   const result = await showcaseController.loadProjects();
 
@@ -63,12 +65,14 @@ async function ProjectsContent({
         next: projects.next,
         paginationLabel: projects.paginationLabel,
       }}
+      locale={locale}
     />
   );
 }
 
-export function ProjectSection() {
-  const { projects, header, fallback } = en;
+export async function ProjectSection() {
+  const { dictionary, locale } = await getDictionary();
+  const { projects, header, fallback } = dictionary;
 
   return (
     <section
@@ -87,7 +91,7 @@ export function ProjectSection() {
         </h2>
       </div>
       <Suspense fallback={<ProjectsSkeleton />}>
-        <ProjectsContent projects={projects} fallback={fallback} />
+        <ProjectsContent projects={projects} fallback={fallback} locale={locale} />
       </Suspense>
     </section>
   );

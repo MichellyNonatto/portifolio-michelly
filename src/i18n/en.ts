@@ -8,6 +8,11 @@ export const en = {
       description: `© ${currentYear} Michelly Coelho. Professional portfolio.`,
       returnToTop: "Top",
     },
+    languageLabel: "Language",
+    languageOptions: {
+      en: "English",
+      ptBr: "Português (Brasil)",
+    },
     navigation: [
       { label: "About", id: "about" },
       { label: "Projects", id: "projects" },
@@ -127,7 +132,7 @@ export const en = {
       directCoordinates: "Direct coordinates",
       directEmail: "Direct email",
       basedIn: "Based in",
-      location: "Brazil (or Remote)",
+      location: "Hybrid in São Paulo and Campinas | On-site in Bragança Paulista and surrounding areas | Open to Remote",
       availability: "Open to full-time and high-impact contracts",
       connectOnline: "Connect online",
       linkedIn: "LinkedIn",

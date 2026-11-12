@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { en } from "@/i18n/en";
+import { getDictionary } from "@/i18n";
 import { Badge } from "@/components/ui/badge";
 import { ContactForm } from "./contact-form";
 import { siteConfig } from "@/config/site";
@@ -20,10 +20,10 @@ function ContactDetail({
 }) {
   const content = (
     <>
-      <span className="block font-label-sm text-label-sm uppercase text-on-surface-variant">
+      <span className="font-semibold block font-label-sm text-label-xs uppercase text-on-surface-variant">
         {label}
       </span>
-      <span className="font-headline-sm text-headline-sm text-on-surface">
+      <span className="font-headline-xs text-headline-xs text-on-surface">
         {children}
       </span>
     </>
@@ -47,9 +47,12 @@ function ContactDetail({
   );
 }
 
-export function ContactSection() {
-  const { contact, header } = en;
-  const contactNavigation = header.navigation.find(({ id }) => id === "contact");
+export async function ContactSection() {
+  const { dictionary } = await getDictionary();
+  const { contact, header } = dictionary;
+  const contactNavigation = header.navigation.find(
+    ({ id }) => id === "contact",
+  );
   const socialLinks: ContactLink[] = [
     { label: contact.form.linkedIn, href: siteConfig.socialLinks.linkedin },
     { label: contact.form.github, href: siteConfig.socialLinks.github },
@@ -76,7 +79,9 @@ export function ContactSection() {
         <aside className="select-text flex min-w-0 flex-col gap-5 rounded-[24px] bg-tertiary-fixed p-5 text-on-tertiary-fixed shadow-[6px_6px_0px_var(--color-on-surface)] sm:p-8 lg:col-span-5">
           <h3 className="flex items-center gap-3 font-headline-sm text-headline-sm">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-on-primary">
-              <span aria-hidden="true" className="material-icons-outlined">mail</span>
+              <span aria-hidden="true" className="material-icons-outlined">
+                mail
+              </span>
             </span>
             {contact.form.directCoordinates}
           </h3>
@@ -108,7 +113,12 @@ export function ContactSection() {
                   className="flex min-h-11 items-center justify-between rounded-xl bg-surface px-3 font-label-sm text-label-sm font-bold shadow-[3px_3px_0px_var(--color-on-surface)] transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   {link.label}
-                  <span aria-hidden="true" className="material-icons-outlined text-base">open_in_new</span>
+                  <span
+                    aria-hidden="true"
+                    className="material-icons-outlined text-base"
+                  >
+                    open_in_new
+                  </span>
                 </a>
               ))}
               <a
@@ -118,7 +128,12 @@ export function ContactSection() {
                 className="flex min-h-11 items-center justify-between rounded-xl bg-primary px-3 font-label-sm text-label-sm font-bold text-on-primary shadow-[3px_3px_0px_var(--color-on-surface)] transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 {contact.form.resume}
-                <span aria-hidden="true" className="material-icons-outlined text-base">download</span>
+                <span
+                  aria-hidden="true"
+                  className="material-icons-outlined text-base"
+                >
+                  download
+                </span>
               </a>
             </div>
           </div>

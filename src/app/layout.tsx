@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Geist_Mono, Inter, Space_Grotesk } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { getLocale } from "@/i18n";
 import "./globals.css";
+
+export const instant = false;
 
 const inter = Inter({
   variable: "--font-inter",
@@ -24,14 +27,16 @@ export const metadata: Metadata = {
   description: "Portfólio de Michelly Coelho, Software Engineer & AI Integrator.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
     <html
-      lang="en"
+      lang={locale}
       className={`${inter.variable} ${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-surface font-sans text-on-surface">

@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { en } from "@/i18n/en";
+import { getDictionary } from "@/i18n";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Fallback } from "@/components/fallback/fallback";
@@ -25,7 +25,7 @@ async function SkillsContent({
   fallback,
 }: {
   readonly empty: string;
-  readonly fallback: typeof en.fallback;
+  readonly fallback: Awaited<ReturnType<typeof getDictionary>>["dictionary"]["fallback"];
 }) {
   const result = await showcaseController.loadSkills();
 
@@ -95,8 +95,9 @@ function SkillTrackCard({
   );
 }
 
-export function SkillsSection() {
-  const { skills, header } = en;
+export async function SkillsSection() {
+  const { dictionary } = await getDictionary();
+  const { skills, header, fallback } = dictionary;
 
   return (
     <section
@@ -115,7 +116,7 @@ export function SkillsSection() {
         </h2>
       </div>
       <Suspense fallback={<SkillsSkeleton />}>
-        <SkillsContent empty={skills.empty} fallback={en.fallback} />
+        <SkillsContent empty={skills.empty} fallback={fallback} />
       </Suspense>
     </section>
   );

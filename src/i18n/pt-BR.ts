@@ -9,6 +9,11 @@ export const ptBr = {
       description: `© ${currentYear} Michelly Coelho. Portfólio profissional.`,
       returnToTop: "Voltar ao topo",
     },
+    languageLabel: "Idioma",
+    languageOptions: {
+      en: "English",
+      ptBr: "Português (Brasil)",
+    },
     navigation: [
       { label: "Sobre", id: "about" },
       { label: "Projetos", id: "projects" },
@@ -128,7 +133,7 @@ export const ptBr = {
       directCoordinates: "Contato direto",
       directEmail: "E-mail direto",
       basedIn: "Localização",
-      location: "Brasil (ou remoto)",
+      location: "Híbrido em São Paulo e Campinas | Presencial em Bragança Paulista e região | Disponível para remoto",
       availability: "Disponível para oportunidades em período integral e contratos de alto impacto",
       connectOnline: "Conecte-se comigo",
       linkedIn: "LinkedIn",

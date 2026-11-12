@@ -1,10 +1,11 @@
-import { en } from "@/i18n/en";
+import { getDictionary } from "@/i18n";
 import { ProfileContent } from "./profile-content";
 import { ProfileStats } from "./profile-stats";
 import { ProfileImage } from "./profile-image";
 
-export function ProfileSection() {
-  const { profile } = en;
+export async function ProfileSection() {
+  const { dictionary } = await getDictionary();
+  const { profile } = dictionary;
 
   return (
     <section
