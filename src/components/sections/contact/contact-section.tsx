@@ -117,7 +117,7 @@ export async function ContactSection() {
                     aria-hidden="true"
                     className="material-icons-outlined text-base"
                   >
-                    open_in_new
+                    link
                   </span>
                 </a>
               ))}

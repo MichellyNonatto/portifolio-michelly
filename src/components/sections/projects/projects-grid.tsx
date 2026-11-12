@@ -116,7 +116,6 @@ export function ProjectsGrid({ projects, labels, locale }: ProjectsGridProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="primary"
-                  icon="open_in_new"
                   className="min-h-11 flex-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   {labels.liveDemo}
@@ -128,7 +127,7 @@ export function ProjectsGrid({ projects, labels, locale }: ProjectsGridProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="secondary"
-                icon="open_in_new"
+                icon="link"
                 className="min-h-11 flex-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 {labels.github}
