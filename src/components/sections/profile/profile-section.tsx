@@ -15,7 +15,7 @@ export function ProfileSection() {
       <div className="lg:col-span-7 flex flex-col items-start gap-8">
         <ProfileContent
           headline={profile.headline}
-          summary={profile.summary}
+          summary={profile.resume}
           profileActions={profile.profileActions}
         />
         <ProfileStats stats={profile.stats} />

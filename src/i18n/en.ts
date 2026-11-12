@@ -1,9 +1,11 @@
+const currentYear = new Date().getFullYear();
+
 export const en = {
   header: {
     brand: {
       name: "Michelly Coelho",
-      role: "Engineer & AI",
-      description: "© 2024 Michelly Coelho. Architecting high-performance systems and intelligent AI interfaces.",
+      role: "Software Engineer",
+      description: `© ${currentYear} Michelly Coelho. Professional portfolio.`,
       returnToTop: "Top",
     },
     navigation: [
@@ -15,36 +17,44 @@ export const en = {
   },
   profile: {
     headline: {
-      pre: "Building ",
-      highlight: "Intelligent",
-      post: " & Resilient Web Experiences",
+      pre: "Create smart",
+      highlight: " Technology ",
+      post: "for real world challenges",
     },
-    summary:
-      "Full-stack software engineer bridging modern, reactive front-ends with resilient backend architectures and practical LLM/AI integrations. Transforming complex computational workflows into accessible, joyful digital products.",
+    resume: "Full-stack software engineer bridging modern, reactive front-ends with resilient backend architectures and practical LLM/AI integrations. Transforming complex computational workflows into accessible, joyful digital products.",
+    summary: `
+    I hold a degree in Systems Analysis and Development and have 2 years and 10 months of experience at one of Latin America's largest foodtech companies, progressing from Software Engineering Intern to Junior Software Engineer.
+
+    My experience in iOS development exposed me to the challenges of building and scaling high-impact products, strengthening my skills in software architecture, testing, code quality, and product-driven development.
+
+    Beyond software engineering, I focus on strategically orchestrating AI technologies, combining LLMs, agents, and automation to create practical, cost-effective, and functional solutions.
+
+    Currently pursuing a postgraduate degree in Artificial Intelligence, I am deepening my expertise in building intelligent, AI-powered products.
+    `,
     profileActions: {
       viewProjects: "View Projects",
       downloadResume: "Download Resume PDF",
     },
     stats: [
       {
-        value: "5+",
+        value: "2+",
         label: "Years Experience",
         variant: "surface" as const,
       },
       {
-        value: "99.9%",
-        label: "Uptime Architecture",
+        value: "B2C",
+        label: "Business Operations",
         variant: "secondary" as const,
       },
       {
-        value: "24+",
-        label: "AI Deployments",
+        value: "AI",
+        label: "Intelligent Solutions",
         variant: "tertiary" as const,
       },
     ],
     badge: {
-      role: "Software Engineer",
-      icon: "code",
+      role: "Software Engineer Jr.",
+      icon: "terminal",
     },
     imageAlt: "Michelly Coelho - Software Engineer & AI Integrator",
   },
@@ -72,7 +82,7 @@ export const en = {
   },
   projects: {
     badge: "02 / Projects",
-    headline: "Prduction AI & web Architectures",
+    headline: "Code & Creations",
     projectBreakdown: "AI project breakdown",
     problemSolved: "Problem solved",
     primaryLanguage: "Primary language",
@@ -87,7 +97,7 @@ export const en = {
   },
   skills: {
     badge: "03 / Skills",
-    headline: "Architectural Toolkit & Disciplines",
+    headline: "Technologies & Expertise",
     empty: "No skills have been published yet.",
   },
   contact: {
@@ -107,11 +117,13 @@ export const en = {
         "Other",
       ],
       messageLabel: "Message",
-      messagePlaceholder: "Tell me about your product vision, engineering challenges, or team needs...",
+      messagePlaceholder:
+        "Tell me about your product vision, engineering challenges, or team needs...",
       submit: "Send message",
       sending: "Sending message...",
       success: "Message sent successfully.",
-      error: "Unable to send the message. Please try again or use the email link.",
+      error:
+        "Unable to send the message. Please try again or use the email link.",
       directCoordinates: "Direct coordinates",
       directEmail: "Direct email",
       basedIn: "Based in",

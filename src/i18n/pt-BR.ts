@@ -1,12 +1,16 @@
+
+const currentYear = new Date().getFullYear();
+
 export const ptBr = {
   header: {
     brand: {
       name: "Michelly Coelho",
-      role: "Engenharia & AI",
+      role: "Engenheira de Software",
+      description: `© ${currentYear} Michelly Coelho. Portfólio profissional.`,
+      returnToTop: "Voltar ao topo",
     },
     navigation: [
       { label: "Sobre", id: "about" },
-      { label: "Experiência", id: "experience" },
       { label: "Projetos", id: "projects" },
       { label: "Habilidades", id: "skills" },
       { label: "Contato", id: "contact" },
@@ -14,112 +18,123 @@ export const ptBr = {
   },
   profile: {
     headline: {
-      pre: "Construindo Experiências Web ",
-      highlight: "Inteligentes",
-      post: " & Resilientes",
+      pre: "Criando",
+      highlight: " tecnologia ",
+      post: "para desafios do mundo real",
     },
-    summary:
-      "Engenheira de software full-stack conectando front-ends modernos e reativos a arquiteturas de backend resilientes e integrações práticas de IA/LLMs. Transformando fluxos computacionais complexos em produtos digitais acessíveis e fluidos.",
+    resume: "Engenheira de Software Full-stack que conecta interfaces modernas e reativas a arquiteturas de backend resilientes e integrações práticas com LLMs e Inteligência Artificial. Transformando fluxos computacionais complexos em produtos digitais acessíveis e intuitivos.",
+    summary: `
+    Sou formada em Análise e Desenvolvimento de Sistemas e tenho 2 anos e 10 meses de experiência em uma das maiores empresas de foodtech da América Latina, onde evoluí de Estagiária de Engenharia de Software a Engenheira de Software Júnior.
+
+    Minha experiência em desenvolvimento iOS me proporcionou contato com os desafios de construir e escalar produtos de alto impacto, fortalecendo minhas habilidades em arquitetura de software, testes, qualidade de código e desenvolvimento orientado ao produto.
+
+    Além da engenharia de software, concentro meus esforços na orquestração estratégica de tecnologias de IA, combinando LLMs, agentes e automações para desenvolver soluções práticas, funcionais e economicamente eficientes.
+
+    Atualmente, estou cursando uma pós-graduação em Inteligência Artificial, aprofundando meus conhecimentos na construção de produtos inteligentes potencializados por IA.
+    `,
     profileActions: {
-      viewProjects: "Ver Projetos",
-      downloadResume: "Baixar Currículo PDF",
+      viewProjects: "Ver projetos",
+      downloadResume: "Baixar currículo em PDF",
     },
     stats: [
       {
-        value: "5+",
-        label: "Anos de Experiência",
+        value: "2+",
+        label: "Anos de experiência",
         variant: "surface" as const,
       },
       {
-        value: "99.9%",
-        label: "Arquitetura Uptime",
+        value: "B2C",
+        label: "Operações de negócio",
         variant: "secondary" as const,
       },
       {
-        value: "24+",
-        label: "Deploys de IA",
+        value: "IA",
+        label: "Soluções inteligentes",
         variant: "tertiary" as const,
       },
     ],
     badge: {
-      role: "Engenheira de Software",
-      icon: "code",
+      role: "Engenheira de Software Jr.",
+      icon: "terminal",
     },
-    imageAlt: "Michelly Coelho - Engenheira de Software & Integradora de IA",
+    imageAlt: "Michelly Coelho - Engenheira de Software e Integradora de IA",
   },
   fallback: {
     title: "Experiências temporariamente indisponíveis",
     description:
-      "Não foi possível sincronizar a trajetória do banco de dados. Você pode acessar meu currículo completo e canais abaixo:",
-    downloadResume: "Baixar Currículo PDF",
-    viewGithub: "Acessar GitHub",
-    contact: "Entrar em Contato",
+      "Não foi possível carregar minha trajetória profissional diretamente do banco de dados. Consulte meu currículo ou utilize um dos canais de contato abaixo:",
+    downloadResume: "Baixar currículo em PDF",
+    viewGithub: "Ver GitHub",
+    contact: "Entre em contato",
   },
   about: {
     badge: "01 / Sobre",
-    headline: "Sobre & Trajetória Profissional",
-    bioTitle: "Sobre Mim",
-    coursesTitle: "Cursos & Workshops",
-    coursesDescription: "Aperfeiçoamentos práticos e especializações imersivas.",
-    trajectoryTitle: "Trajetória & Conquistas",
-    trajectorySubtitle: "Carreira e certificações acadêmicas validadas",
-    currentLabel: "Presente",
-    credentialLabel: "Credencial",
+    headline: "Sobre mim e trajetória profissional",
+    bioTitle: "Sobre mim",
+    coursesTitle: "Cursos e workshops",
+    coursesDescription:
+      "Especializações práticas e desenvolvimento técnico contínuo.",
+    trajectoryTitle: "Trajetória e conquistas",
+    trajectorySubtitle: "Experiência profissional e certificações acadêmicas",
+    currentLabel: "Atual",
+    credentialLabel: "Certificado",
     emptyExperiences: "Nenhum registro de experiência profissional encontrado.",
     emptyCertifications: "Nenhum certificado acadêmico encontrado.",
   },
   projects: {
     badge: "02 / Projetos",
-    headline: "Toolkit Arquitetural & Disciplinas",
-    projectBreakdown: "Resumo do projeto",
-    problemSolved: "Problema resolvido",
-    primaryLanguage: "Linguagem principal",
+    headline: "Projetos e criações",
+    projectBreakdown: "Análise técnica do projeto",
+    problemSolved: "Problema solucionado",
+    primaryLanguage: "Principal linguagem",
     projectLabel: "Projeto",
     starsLabel: "Estrelas no GitHub",
     github: "GitHub",
-    liveDemo: "Acessar projeto",
+    liveDemo: "Demonstração",
     empty: "Nenhum projeto publicado encontrado.",
     previous: "Anterior",
     next: "Próximo",
     paginationLabel: "Paginação de projetos",
   },
   skills: {
-    badge: "03 / Skills",
-    headline: "Toolkit Arquitetural & Disciplinas",
-    empty: "Nenhuma skill foi publicada ainda.",
+    badge: "03 / Habilidades",
+    headline: "Tecnologias e competências",
+    empty: "Nenhuma habilidade publicada até o momento.",
   },
   contact: {
     badge: "04 / Contato",
     headline: "Vamos construir algo resiliente juntos",
     form: {
       nameLabel: "Seu nome",
-      namePlaceholder: "Seu nome",
-      emailLabel: "Endereço de email",
+      namePlaceholder: "Digite seu nome",
+      emailLabel: "Endereço de e-mail",
       emailPlaceholder: "voce@empresa.com",
-      inquiryLabel: "Tipo de contato / vaga",
-      inquiryPlaceholder: "Selecione uma opção",
+      inquiryLabel: "Tipo de contato / oportunidade",
+      inquiryPlaceholder: "Selecione o tipo de contato",
       inquiryOptions: [
-        "Vaga de engenharia em tempo integral",
+        "Oportunidade de trabalho em período integral",
         "Contrato ou consultoria",
-        "Colaboração em projeto",
+        "Colaboração em projetos",
         "Outro",
       ],
       messageLabel: "Mensagem",
-      messagePlaceholder: "Conte sobre sua visão de produto, desafios de engenharia ou necessidades do time...",
+      messagePlaceholder:
+        "Conte-me sobre a visão do seu produto, desafios de engenharia ou necessidades da sua equipe...",
       submit: "Enviar mensagem",
       sending: "Enviando mensagem...",
       success: "Mensagem enviada com sucesso.",
-      error: "Não foi possível enviar a mensagem. Tente novamente ou use o link de email.",
-      directCoordinates: "Coordenadas diretas",
-      directEmail: "Email direto",
+      error:
+        "Não foi possível enviar a mensagem. Tente novamente ou utilize o link de e-mail.",
+      directCoordinates: "Contato direto",
+      directEmail: "E-mail direto",
       basedIn: "Localização",
-      location: "Brasil (ou Remoto)",
-      availability: "Aberta a vagas integrais e contratos de alto impacto",
-      connectOnline: "Conecte-se online",
+      location: "Brasil (ou remoto)",
+      availability: "Disponível para oportunidades em período integral e contratos de alto impacto",
+      connectOnline: "Conecte-se comigo",
       linkedIn: "LinkedIn",
       github: "GitHub",
       x: "X / Twitter",
-      resume: "Currículo PDF",
+      resume: "Currículo em PDF",
     },
   },
 } as const;
