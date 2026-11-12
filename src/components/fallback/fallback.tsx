@@ -24,10 +24,10 @@ export function Fallback({
   return (
     <div
       role="alert"
-      className={`flex flex-col gap-5 rounded-2xl border border-dashed border-outline/40 bg-surface-container-low p-6 text-on-surface shadow-[4px_4px_0px_var(--color-on-surface)] ${className}`}
+      className={`flex flex-col gap-5 rounded-2xl border border-dashed border-outline/40 bg-surface-container-low p-6 text-on-surface shadow-[2px_2px_0px_#1b1b1c] ${className}`}
     >
       <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-error text-on-error shadow-[2px_2px_0px_var(--color-on-surface)]">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-error text-on-error shadow-[2px_2px_0px_#1b1b1c]">
           <span aria-hidden="true" className="material-icons-outlined text-2xl">
             cloud_off
           </span>

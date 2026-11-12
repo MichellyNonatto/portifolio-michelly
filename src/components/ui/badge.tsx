@@ -21,12 +21,12 @@ export function Badge({
   };
 
   const variantClasses = {
-    primary: "bg-primary text-on-primary font-bold shadow-[2px_2px_0px_var(--color-on-surface)]",
-    secondary: "bg-secondary-container text-on-secondary-container font-bold shadow-[2px_2px_0px_var(--color-on-surface)]",
-    tertiary: "bg-tertiary-fixed text-on-tertiary-fixed font-bold shadow-[2px_2px_0px_var(--color-on-surface)]",
+    primary: "bg-primary text-on-primary font-bold shadow-[2px_2px_0px_#1b1b1c]",
+    secondary: "bg-secondary-container text-on-secondary-container font-bold shadow-[2px_2px_0px_#1b1b1c]",
+    tertiary: "bg-tertiary-fixed text-on-tertiary-fixed font-bold shadow-[2px_2px_0px_#1b1b1c]",
     "primary-fixed": "bg-primary-fixed text-on-primary-fixed font-bold uppercase tracking-wider",
     "secondary-fixed": "bg-secondary-fixed text-on-secondary-fixed font-bold uppercase tracking-wider",
-    surface: "bg-surface text-on-surface shadow-[2px_2px_0px_var(--color-on-surface)]",
+    surface: "bg-surface text-on-surface shadow-[2px_2px_0px_#1b1b1c]",
   };
 
   return (

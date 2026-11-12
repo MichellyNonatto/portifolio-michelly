@@ -5,8 +5,8 @@ export function AboutSkeleton() {
       aria-busy="true"
       aria-label="Loading experiences"
     >
-      <div className="h-28 rounded-xl bg-surface/60 shadow-[3px_3px_0px_var(--color-on-surface)]" />
-      <div className="h-28 rounded-xl bg-surface/60 shadow-[3px_3px_0px_var(--color-on-surface)]" />
+      <div className="h-28 rounded-xl border border-outline/30 bg-surface/60 shadow-[2px_2px_0px_#1b1b1c]" />
+      <div className="h-28 rounded-xl border border-outline/30 bg-surface/60 shadow-[2px_2px_0px_#1b1b1c]" />
     </div>
   );
 }

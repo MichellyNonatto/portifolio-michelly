@@ -84,7 +84,7 @@ export function ProjectsGrid({ projects, labels, locale }: ProjectsGridProps) {
               </div>
 
               <div
-                className={`mt-auto rounded-2xl p-4 shadow-[3px_3px_0px_var(--color-on-surface)] ${
+                className={`mt-auto rounded-2xl border border-outline/30 p-4 shadow-[2px_2px_0px_#1b1b1c] ${
                   index % 3 === 1
                     ? "bg-tertiary-container text-on-tertiary-container"
                     : index % 3 === 2

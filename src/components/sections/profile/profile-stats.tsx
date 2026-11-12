@@ -33,7 +33,7 @@ export function ProfileStats({ stats, className = "" }: ProfileStatsProps) {
       {stats.map((stat, index) => (
         <div
           key={index}
-          className={`flex flex-col p-4 rounded-xl shadow-[3px_3px_0px_var(--color-on-surface)] ${variantStyles[stat.variant]}`}
+          className={`flex flex-col p-4 rounded-xl border border-outline/30 shadow-[2px_2px_0px_#1b1b1c] ${variantStyles[stat.variant]}`}
         >
           <span
             className={`font-display text-3xl sm:text-4xl font-bold leading-none ${valueStyles[stat.variant]}`}

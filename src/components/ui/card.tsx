@@ -14,19 +14,21 @@ export function Card({
   ...props
 }: CardProps) {
   const variantClasses = {
-    low: "bg-surface-container-low shadow-[6px_6px_0px_var(--color-on-surface)]",
-    high: "bg-surface-container-high shadow-[6px_6px_0px_var(--color-on-surface)]",
-    highest: "bg-surface-container-highest shadow-[3px_3px_0px_var(--color-on-surface)]",
-    secondary: "bg-secondary-container text-on-secondary-container shadow-[6px_6px_0px_var(--color-on-surface)]",
-    tertiary: "bg-tertiary-fixed text-on-tertiary-fixed shadow-[6px_6px_0px_var(--color-on-surface)]",
-    surface: "bg-surface shadow-[3px_3px_0px_var(--color-on-surface)]",
+    low: "bg-surface-container-low",
+    high: "bg-surface-container-high",
+    highest: "bg-surface-container-highest",
+    secondary: "bg-secondary-container text-on-secondary-container",
+    tertiary: "bg-tertiary-fixed text-on-tertiary-fixed",
+    surface: "bg-surface",
   };
 
-  const hoverClasses = hoverable ? "hover:-translate-y-1 transition-all duration-200" : "";
+  const hoverClasses = hoverable
+    ? "transition-all duration-200 hover:-translate-y-1 hover:shadow-[3px_3px_0px_#1b1b1c]"
+    : "";
 
   return (
     <div
-      className={`rounded-[24px] ${variantClasses[variant]} ${hoverClasses} ${className}`}
+      className={`rounded-[24px] border border-outline/30 shadow-[2px_2px_0px_#1b1b1c] ${variantClasses[variant]} ${hoverClasses} ${className}`}
       {...props}
     >
       {children}

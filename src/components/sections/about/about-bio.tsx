@@ -21,7 +21,7 @@ export function AboutBio({
   return (
     <Card variant="low" className={`flex flex-col gap-6 p-8 ${className}`}>
       <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-on-primary shadow-[2px_2px_0px_var(--color-on-surface)]">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-on-primary shadow-[2px_2px_0px_#1b1b1c]">
           <span aria-hidden="true" className="material-icons-outlined text-2xl">
             person
           </span>
@@ -58,7 +58,7 @@ export function AboutBio({
             {professionalCertifications.map((certification) => (
               <div
                 key={certification.id}
-                className="flex items-center justify-between gap-2 rounded-xl bg-surface-container p-3 shadow-[2px_2px_0px_var(--color-on-surface)]"
+                className="flex items-center justify-between gap-2 rounded-xl border border-outline/30 bg-surface-container p-3 shadow-[2px_2px_0px_#1b1b1c]"
               >
                 <div className="flex flex-col">
                   <span className="font-label-sm text-label-sm font-bold text-on-surface">

@@ -31,7 +31,7 @@ function ContactDetail({
 
   if (!href) {
     return (
-      <div className="rounded-2xl bg-surface p-4 shadow-[3px_3px_0px_var(--color-on-surface)]">
+      <div className="rounded-2xl border border-outline/30 bg-surface p-4 shadow-[2px_2px_0px_#1b1b1c]">
         {content}
       </div>
     );
@@ -40,7 +40,7 @@ function ContactDetail({
   return (
     <a
       href={href}
-      className="block rounded-2xl bg-surface p-4 shadow-[3px_3px_0px_var(--color-on-surface)] transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      className="block rounded-2xl border border-outline/30 bg-surface p-4 shadow-[2px_2px_0px_#1b1b1c] transition hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#1b1b1c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
     >
       {content}
     </a>
@@ -76,7 +76,7 @@ export async function ContactSection() {
 
       <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-8">
         <ContactForm labels={contact.form} />
-        <aside className="select-text flex min-w-0 flex-col gap-5 rounded-[24px] bg-tertiary-fixed p-5 text-on-tertiary-fixed shadow-[6px_6px_0px_var(--color-on-surface)] sm:p-8 lg:col-span-5">
+        <aside className="select-text flex min-w-0 flex-col gap-5 rounded-[24px] border border-outline/30 bg-tertiary-fixed p-5 text-on-tertiary-fixed shadow-[2px_2px_0px_#1b1b1c] sm:p-8 lg:col-span-5">
           <h3 className="flex items-center gap-3 font-headline-sm text-headline-sm">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-on-primary">
               <span aria-hidden="true" className="material-icons-outlined">
@@ -110,7 +110,7 @@ export async function ContactSection() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-11 items-center justify-between rounded-xl bg-surface px-3 font-label-sm text-label-sm font-bold shadow-[3px_3px_0px_var(--color-on-surface)] transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="flex min-h-11 items-center justify-between rounded-xl border border-outline/30 bg-surface px-3 font-label-sm text-label-sm font-bold shadow-[2px_2px_0px_#1b1b1c] transition hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#1b1b1c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
                   {link.label}
                   <span
@@ -125,7 +125,7 @@ export async function ContactSection() {
                 href="/curriculum.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-h-11 items-center justify-between rounded-xl bg-primary px-3 font-label-sm text-label-sm font-bold text-on-primary shadow-[3px_3px_0px_var(--color-on-surface)] transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className="flex min-h-11 items-center justify-between rounded-xl border border-outline/30 bg-primary px-3 font-label-sm text-label-sm font-bold text-on-primary shadow-[2px_2px_0px_#1b1b1c] transition hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#1b1b1c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 {contact.form.resume}
                 <span

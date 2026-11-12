@@ -50,7 +50,7 @@ export function ContactForm({ labels }: { readonly labels: ContactFormLabels }) 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex min-w-0 flex-col gap-6 rounded-[24px] bg-surface-container-low p-5 shadow-[6px_6px_0px_var(--color-on-surface)] sm:p-8 lg:col-span-7"
+      className="flex min-w-0 flex-col gap-6 rounded-[24px] border border-outline/30 bg-surface-container-low p-5 shadow-[2px_2px_0px_#1b1b1c] sm:p-8 lg:col-span-7"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <label className={labelClassName}>
@@ -85,7 +85,7 @@ export function ContactForm({ labels }: { readonly labels: ContactFormLabels }) 
             required
             name="inquiry"
             defaultValue=""
-            className={`${fieldClassName} contact-select w-full cursor-pointer pr-11 shadow-[3px_3px_0px_var(--color-on-surface)] focus:shadow-[4px_4px_0px_var(--color-on-surface)]`}
+            className={`${fieldClassName} contact-select w-full cursor-pointer pr-11 shadow-[2px_2px_0px_#1b1b1c] focus:shadow-[3px_3px_0px_#1b1b1c]`}
           >
             <option value="" disabled>{labels.inquiryPlaceholder}</option>
             {labels.inquiryOptions.map((option) => (

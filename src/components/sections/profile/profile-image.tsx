@@ -18,9 +18,9 @@ export function ProfileImage({
   return (
     <div className={`relative flex justify-center lg:justify-end ${className}`}>
       {/* Structural Backdrop Card */}
-      <div className="relative w-full max-w-md p-4 sm:p-5 rounded-[28px] bg-secondary-container shadow-[8px_8px_0px_var(--color-on-surface)]">
+      <div className="relative w-full max-w-md p-4 sm:p-5 rounded-[28px] border border-outline/30 bg-secondary-container shadow-[2px_2px_0px_#1b1b1c]">
         {/* Image Frame Wrapper */}
-        <div className="relative rounded-2xl overflow-hidden bg-surface-container-highest aspect-square shadow-[2px_2px_0px_var(--color-on-surface)]">
+        <div className="relative rounded-2xl overflow-hidden bg-surface-container-highest aspect-square shadow-[2px_2px_0px_#1b1b1c]">
           <Image
             src={imageSrc}
             alt={altText}
@@ -32,7 +32,7 @@ export function ProfileImage({
         </div>
 
         {/* Floating Neo-Brutalist Badge */}
-        <div className="absolute -top-4 -right-2 sm:-right-4 px-4 py-2.5 rounded-full bg-primary text-on-primary shadow-[4px_4px_0px_var(--color-on-surface)] flex items-center gap-2 transform rotate-2">
+        <div className="absolute -top-4 -right-2 sm:-right-4 px-4 py-2.5 rounded-full border border-outline/30 bg-primary text-on-primary shadow-[2px_2px_0px_#1b1b1c] flex items-center gap-2 transform rotate-2">
           {badgeIcon && (
             <span aria-hidden="true" className="material-icons-outlined text-base">
               {badgeIcon}

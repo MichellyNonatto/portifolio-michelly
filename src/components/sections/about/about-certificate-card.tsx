@@ -12,7 +12,7 @@ export function AboutCertificateCard({
   const year = new Date(certificate.issueDate).getUTCFullYear();
 
   return (
-    <article className="group flex gap-3 rounded-2xl bg-secondary-container p-4 text-on-secondary-container shadow-[4px_4px_0px_var(--color-on-surface)] transition-all hover:-translate-y-0.5 sm:gap-4 sm:p-5">
+    <article className="group flex gap-3 rounded-2xl border border-outline/30 bg-secondary-container p-4 text-on-secondary-container shadow-[2px_2px_0px_#1b1b1c] transition-all hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#1b1b1c] sm:gap-4 sm:p-5">
       <div
         aria-hidden="true"
         className="flex h-11 w-11 shrink-0 items-center justify-center self-start rounded-xl bg-surface-container-lowest text-on-surface-variant sm:h-12 sm:w-12"
@@ -34,7 +34,7 @@ export function AboutCertificateCard({
 
         <div className="flex flex-wrap items-center gap-2">
           <span
-            className="inline-flex items-center rounded-full bg-surface-container-lowest px-3 py-1 font-label-sm text-label-sm font-bold text-on-surface shadow-[2px_2px_0px_var(--color-on-surface)]"
+            className="inline-flex items-center rounded-full bg-surface-container-lowest px-3 py-1 font-label-sm text-label-sm font-bold text-on-surface shadow-[2px_2px_0px_#1b1b1c]"
           >
             {year}
           </span>

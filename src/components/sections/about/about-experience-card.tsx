@@ -40,7 +40,7 @@ export function AboutExperienceCard({
   );
 
   return (
-    <article className="flex flex-col gap-2 rounded-xl bg-surface p-5 text-on-surface shadow-[3px_3px_0px_var(--color-on-surface)] transition-all hover:-translate-y-0.5">
+    <article className="flex flex-col gap-2 rounded-xl border border-outline/30 bg-surface p-5 text-on-surface shadow-[2px_2px_0px_#1b1b1c] transition-all hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#1b1b1c]">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex flex-wrap items-center gap-2">
           <span

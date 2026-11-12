@@ -26,11 +26,11 @@ export function Button({
 
   const variantClasses = {
     primary:
-      "bg-primary text-on-primary shadow-[4px_4px_0px_var(--color-on-surface)] hover:shadow-[6px_6px_0px_var(--color-on-surface)] hover:-translate-y-0.5 active:shadow-[0px_0px_0px_var(--color-on-surface)] active:translate-x-1 active:translate-y-1",
+      "border border-outline/30 bg-primary text-on-primary shadow-[2px_2px_0px_#1b1b1c] hover:shadow-[3px_3px_0px_#1b1b1c] hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[0px_0px_0px_#1b1b1c]",
     secondary:
-      "bg-surface-container text-on-surface shadow-[4px_4px_0px_var(--color-on-surface)] hover:bg-primary-fixed hover:text-on-primary-fixed hover:shadow-[6px_6px_0px_var(--color-on-surface)] hover:-translate-y-0.5 active:shadow-[0px_0px_0px_var(--color-on-surface)] active:translate-x-1 active:translate-y-1",
+      "border border-outline/30 bg-surface-container text-on-surface shadow-[2px_2px_0px_#1b1b1c] hover:bg-primary-fixed hover:text-on-primary-fixed hover:shadow-[3px_3px_0px_#1b1b1c] hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[0px_0px_0px_#1b1b1c]",
     surface:
-      "bg-surface text-on-surface shadow-[3px_3px_0px_var(--color-on-surface)] hover:bg-surface-variant hover:shadow-[4px_4px_0px_var(--color-on-surface)] transition-all",
+      "border border-outline/30 bg-surface text-on-surface shadow-[2px_2px_0px_#1b1b1c] hover:bg-surface-variant hover:shadow-[3px_3px_0px_#1b1b1c] hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[0px_0px_0px_#1b1b1c] transition-all",
   };
 
   const combinedClasses = `${baseClasses} ${variantClasses[variant]} ${className}`;
